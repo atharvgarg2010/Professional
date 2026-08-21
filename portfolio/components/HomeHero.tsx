@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useMotionTemplate, useMotionValue, useScroll, useTransform } from 'framer-motion';
+import { motion, useMotionTemplate, useMotionValue, useScroll, useTransform, Variants } from 'framer-motion';
 import { MouseEvent } from 'react';
 
 export default function HomeHero() {
@@ -13,7 +13,7 @@ export default function HomeHero() {
     mouseY.set(clientY - top);
   }
 
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -24,7 +24,7 @@ export default function HomeHero() {
     },
   };
 
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
     show: { 
       opacity: 1, 

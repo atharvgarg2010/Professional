@@ -9,9 +9,9 @@ export interface ThesisData {
   title: string;
   subtitle: string;
   summary: string;
-  readTime: string;
   sections: {
     heading: string;
+    content: string[];
   }[];
   downloadUrl?: string;
   readTime?: string; // Kept for backwards compatibility but calculated dynamically if omitted
