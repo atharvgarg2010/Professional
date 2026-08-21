@@ -1526,11 +1526,25 @@ function ThesisReader({ thesis, onClose }: { thesis: ThesisData, onClose: () => 
                       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                       .replace(/\*(.*?)\*/g, '<em>$1</em>');
 
+                    const isH4 = html.startsWith('#### ');
                     const isSubHeading = html.startsWith('### ');
                     const isHeading = html.startsWith('## ');
                     const isQuote = html.startsWith('> ');
                     const isListItem = html.startsWith('- ') || html.startsWith('* ');
                     const isInstruction = html.startsWith('[');
+
+                    if (isH4) {
+                      return (
+                        <h6 key={pIdx} style={{ 
+                          fontSize: '1rem', 
+                          fontWeight: 600, 
+                          color: 'var(--dim)', 
+                          marginTop: '1.25rem', 
+                          marginBottom: '0.25rem',
+                          fontFamily: '"Helvetica Neue", Inter, Arial, sans-serif'
+                        }} dangerouslySetInnerHTML={{ __html: html.replace('#### ', '') }} />
+                      );
+                    }
 
                     if (isSubHeading) {
                       return (
