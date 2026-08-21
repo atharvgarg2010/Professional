@@ -30,7 +30,7 @@ export default function HomeHero() {
       opacity: 1, 
       y: 0, 
       filter: 'blur(0px)',
-      transition: { type: 'spring', stiffness: 70, damping: 20 }
+      transition: { type: 'spring' as const, stiffness: 70, damping: 20 }
     },
   };
 

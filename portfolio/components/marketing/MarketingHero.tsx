@@ -21,7 +21,7 @@ export default function MarketingHero() {
       opacity: 1, 
       y: 0, 
       filter: 'blur(0px)',
-      transition: { type: 'spring', stiffness: 80, damping: 20 }
+      transition: { type: 'spring' as const, stiffness: 80, damping: 20 }
     },
   };
 
@@ -93,7 +93,7 @@ export default function MarketingHero() {
         <motion.div
           variants={item}
           whileHover={{ x: 10, backgroundColor: 'color-mix(in srgb, var(--fg) 5%, transparent)' }}
-          transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+          transition={{ type: 'spring' as const, stiffness: 200, damping: 20 }}
           style={{
             padding: '1.5rem 2rem',
             maxWidth: '62ch',
