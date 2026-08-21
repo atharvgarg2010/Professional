@@ -1,0 +1,133 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
+export default function Footer() {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer
+      className="hairline-t mt-auto"
+      style={{
+        backgroundColor: 'var(--bg)',
+        position: 'relative',
+        overflow: 'hidden',
+        color: 'var(--fg)',
+        transition: 'background-color var(--theme-duration) var(--theme-ease)',
+      }}
+    >
+      <div className="max-w-screen-2xl mx-auto" style={{ padding: '8rem 2rem 4rem', position: 'relative', zIndex: 10 }}>
+        
+        {/* Top Section: Massive CTA */}
+        <div 
+          className="hairline-b"
+          style={{ paddingBottom: '6rem', marginBottom: '4rem' }}
+        >
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}
+          >
+            <div>
+              <p className="mono-label" style={{ color: 'var(--dim)', marginBottom: '1rem' }}>
+                HAVE AN IDEA?
+              </p>
+              <h2 style={{
+                fontFamily: '"Helvetica Neue", Inter, Arial, sans-serif',
+                fontSize: 'clamp(4rem, 8vw, 7rem)',
+                fontWeight: 700,
+                lineHeight: 0.9,
+                letterSpacing: '-0.04em',
+                margin: '0'
+              }}>
+                LET'S BUILD <br />
+                <span style={{ color: 'color-mix(in srgb, var(--fg) 40%, transparent)' }}>SOMETHING.</span>
+              </h2>
+            </div>
+            
+            <div style={{ display: 'flex', gap: '3rem', alignItems: 'center' }}>
+              <a href="mailto:gargatharv2010@gmail.com" style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', textDecoration: 'none', borderBottom: '1px solid var(--fg)', paddingBottom: '4px', transition: 'opacity 0.2s' }} onMouseEnter={e => (e.target as HTMLElement).style.opacity = '0.5'} onMouseLeave={e => (e.target as HTMLElement).style.opacity = '1'}>gargatharv2010@gmail.com</a>
+              <span className="mono-label" style={{ color: 'var(--dim)', fontSize: '0.85rem' }}>DELHI, IN</span>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Bottom Metadata & Socials */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+        >
+          <span className="mono-label" style={{ color: 'var(--dim)' }}>© {year} ATHARV. ALL RIGHTS RESERVED.</span>
+
+          <div className="flex items-center gap-6">
+            {['EMAIL', 'GITHUB', 'LINKEDIN'].map((link) => (
+              <a
+                key={link}
+                href="#"
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.85rem',
+                  color: 'var(--dim)',
+                  textDecoration: 'none',
+                  position: 'relative',
+                  paddingBottom: '2px',
+                  transition: 'color 0.2s'
+                }}
+                onMouseEnter={e => {
+                  (e.target as HTMLElement).style.color = 'var(--fg)';
+                  (e.target as HTMLElement).style.borderBottom = '1px solid var(--fg)';
+                }}
+                onMouseLeave={e => {
+                  (e.target as HTMLElement).style.color = 'var(--dim)';
+                  (e.target as HTMLElement).style.borderBottom = 'none';
+                }}
+              >
+                {link}
+              </a>
+            ))}
+          </div>
+        </motion.div>
+
+      </div>
+
+      {/* Massive Background Typography */}
+      <div 
+        style={{
+          position: 'absolute',
+          bottom: '-10%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '100%',
+          textAlign: 'center',
+          pointerEvents: 'none',
+          zIndex: 0,
+          userSelect: 'none'
+        }}
+      >
+        <motion.h1
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 0.03 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+          style={{
+            fontFamily: '"Helvetica Neue", Inter, Arial, sans-serif',
+            fontSize: 'clamp(10rem, 25vw, 30rem)',
+            fontWeight: 800,
+            color: 'var(--fg)',
+            lineHeight: 0.7,
+            letterSpacing: '-0.05em',
+            margin: 0,
+            whiteSpace: 'nowrap'
+          }}
+        >
+          ATHARV GARG
+        </motion.h1>
+      </div>
+    </footer>
+  );
+}

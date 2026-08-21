@@ -1,0 +1,104 @@
+/**
+ * Photography data — single source of truth.
+ * 
+ * Rules:
+ * - Do NOT invent title, description, or EXIF. Leave fields empty string if Atharv hasn't supplied them.
+ * - Do NOT render a panel section for empty fields (handled in DetailView).
+ * - aspectRatio = width / height of source image.
+ * - Supply photos in Atharv's ranked order — rank 1 reads first in grid.
+ */
+
+export interface Photo {
+  id: string;
+  src: string;
+  aspectRatio: number;       // width / height — required for CLS-free layout reservations
+  title: string;             // empty string = not supplied yet
+  description: string;       // empty string = not supplied yet
+  location: string;          // empty string = not supplied yet
+  year: string;
+  details?: {
+    camera?: string;
+    lens?: string;
+    settings?: string;
+  };
+}
+
+// ─── Atharv's photo roster ────────────────────────────────────────────────────
+// Supply: title, description, location, year, optional EXIF.
+// Supply remaining photos in ranked order by appending to this array.
+// aspectRatio values below are estimated — update with real values from image metadata.
+
+export const photos: Photo[] = [
+  {
+    id: '01',
+    src: '/photography/_DSC0007.JPG',
+    aspectRatio: 1.5098,      // 4928×3264 — measured
+    title: '',                 // [ SUPPLY: photo title ]
+    description: '',           // [ SUPPLY: a few sentences about this photo ]
+    location: 'Delhi',
+    year: '2025',
+    details: {},
+  },
+  {
+    id: '02',
+    src: '/photography/_DSC0009.JPG',
+    aspectRatio: 0.8,         // Simulated portrait ratio for preview
+    title: '',
+    description: '',
+    location: 'Delhi',
+    year: '2025',
+    details: {},
+  },
+  {
+    id: '03',
+    src: '/photography/_DSC0066.JPG',
+    aspectRatio: 1.0,         // Simulated square ratio for preview
+    title: '',
+    description: '',
+    location: 'Delhi',
+    year: '2025',
+    details: {},
+  },
+  {
+    id: '04',
+    src: '/photography/_DSC0126.JPG',
+    aspectRatio: 0.66,        // Simulated tall portrait ratio for preview
+    title: '',
+    description: '',
+    location: 'Delhi',
+    year: '2025',
+    details: {},
+  },
+  {
+    id: '05',
+    src: '/photography/_DSC0423.JPG',
+    aspectRatio: 1.25,        // Simulated 5:4 ratio for preview
+    title: '',
+    description: '',
+    location: 'Delhi',
+    year: '2025',
+    details: {},
+  },
+  {
+    id: '06',
+    src: '/photography/nature-1.jpg',
+    aspectRatio: 1.0,         // Estimated aspect ratio
+    title: 'Bird on a ledge',
+    description: '',
+    location: '',
+    year: '2026',
+    details: {},
+  },
+  {
+    id: '07',
+    src: '/photography/nature-2.jpg',
+    aspectRatio: 1.5,         // Estimated aspect ratio
+    title: 'Golden Dragonfly',
+    description: '',
+    location: '',
+    year: '2026',
+    details: {},
+  },
+  // ─── SUPPLY REMAINING PHOTOS HERE ─────────────────────────────────────────
+  // Copy the object above and fill in real data. Keep in ranked order.
+];

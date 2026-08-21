@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&family=Instrument+Serif:ital@1&display=swap');
+@import "tailwindcss";
+
+
+/* ─── Design Tokens — Neutral / Base ─────────────────────────────────────── */
+:root {
+  --bg:      #0b0b0c;
+  --fg:      #ededea;
+  --dim:     #6e6e6e;
+  --line:    rgba(237,237,234,0.14);
+  --accent:  #0b0b0c;
+
+  --font-display:  'Archivo Black', sans-serif;
+  --font-body:     'Space Grotesk', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+  --font-serif:    'Instrument Serif', serif;
+
+  /* Transition for theme crossfade */
+  --theme-duration: 500ms;
+  --theme-ease: cubic-bezier(.16,.84,.32,1);
+}
+
+/* ─── Per-Category Theme Tokens ─────────────────────────────────────────── */
+[data-theme="dev"] {
+  --bg:     #0b1f14;
+  --fg:     #78ffb4;
+  --dim:    #78ffb4aa;
+  --line:   #78ffb433;
+  --accent: #78ffb4;
+}
+
+[data-theme="design"] {
+  --bg:     #1a0a06;
+  --fg:     #ff5a2b;
+  --dim:    #ff5a2baa;
+  --line:   #ff5a2b33;
+  --accent: #ff5a2b;
+}
+
+[data-theme="photography"] {
+  --bg:     #0a0a0a;
+  --fg:     #f2f2f2;
+  --dim:    #f2f2f2aa;
+  --line:   #f2f2f233;
+  --accent: #f2f2f2;
+}
+
+[data-theme="motion"] {
+  --bg:     #140a1f;
+  --fg:     #a678ff;
+  --dim:    #a678ffaa;
+  --line:   #a678ff33;
+  --accent: #a678ff;
+}
+
+[data-theme="marketing"] {
+  --bg:     #0a0f1a;
+  --fg:     #7ab8ff;
+  --dim:    #7ab8ffaa;
+  --line:   #7ab8ff33;
+  --accent: #7ab8ff;
+}
+
+/* ─── Texture overlays ───────────────────────────────────────────────────── */
+/* Dev — scanlines */
+[data-theme="dev"] .texture::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(120,255,180,0.04) 2px,
+    rgba(120,255,180,0.04) 3px
+  );
+}
+
+/* Design — diagonal hatch */
+[data-theme="design"] .texture::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255,90,43,0.06) 0px,
+    rgba(255,90,43,0.06) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+}
+
+/* Photography — radial dot film grain via SVG noise */
+[data-theme="photography"] .texture::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background-image: radial-gradient(circle, rgba(242,242,242,0.1) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* Motion — soft diagonal light streak */
+[data-theme="motion"] .texture::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(166,120,255,0.04) 30%,
+    rgba(166,120,255,0.08) 50%,
+    rgba(166,120,255,0.04) 70%,
+    transparent 100%
+  );
+}
+
+/* Marketing — grid lines */
+[data-theme="marketing"] .texture::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background-image:
+    linear-gradient(rgba(122,184,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(122,184,255,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ─── Base reset ─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+  transition:
+    background-color var(--theme-duration) var(--theme-ease),
+    color var(--theme-duration) var(--theme-ease);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Theme crossfade on key elements */
+a, button, input, textarea, select {
+  transition:
+    background-color var(--theme-duration) var(--theme-ease),
+    color var(--theme-duration) var(--theme-ease),
+    border-color var(--theme-duration) var(--theme-ease);
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────────── */
+.font-display  { font-family: var(--font-display); }
+.font-body     { font-family: var(--font-body); }
+.font-mono     { font-family: var(--font-mono); }
+.font-serif    { font-family: var(--font-serif); font-style: italic; }
+
+/* Type scale */
+.text-display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 9.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.text-display-l {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.text-display-m {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.text-body    { font-size: 0.95rem; line-height: 1.7; }
+.text-caption { font-family: var(--font-mono); font-size: 0.7rem; }
+
+/* Mono labels always uppercase */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+}
+
+/* ─── Layout ─────────────────────────────────────────────────────────────── */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0 2rem;
+  padding-inline: 2rem;
+}
+
+@media (max-width: 768px) {
+  .grid-12 {
+    grid-template-columns: repeat(4, 1fr);
+    padding-inline: 1rem;
+    gap: 0 1rem;
+  }
+}
+
+.section-rhythm {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Lines & borders (hairline, zero border-radius) ────────────────────── */
+.hairline       { border: 1px solid var(--line); }
+.hairline-b     { border-bottom: 1px solid var(--line); }
+.hairline-t     { border-top: 1px solid var(--line); }
+
+/* Tags / pills — sharp corners only */
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--line);
+  color: var(--dim);
+  border-radius: 0;
+  display: inline-block;
+  transition:
+    border-color var(--theme-duration) var(--theme-ease),
+    color var(--theme-duration) var(--theme-ease);
+}
+
+.tag:hover {
+  border-color: var(--accent);
+  color: var(--fg);
+}
+
+/* ─── Focus visible (accessibility) ─────────────────────────────────────── */
+:focus-visible {
+  outline: 1.5px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ─── Blinking cursor (dev page) ────────────────────────────────────────── */
+.blink-cursor::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+  color: var(--accent);
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blink-cursor::after { animation: none; opacity: 1; }
+}
+
+/* ─── Scroll-reveal animation classes ───────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s var(--theme-ease), transform 0.6s var(--theme-ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transform: none; transition: opacity 0.3s ease; }
+}
+
+/* ─── Scrollbar styling ─────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--line); }
+::-webkit-scrollbar-thumb:hover { background: var(--dim); }
+
+/* ─── Selection ─────────────────────────────────────────────────────────── */
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* ─── Utility ────────────────────────────────────────────────────────────── */
+.color-fg     { color: var(--fg); }
+.color-dim    { color: var(--dim); }
+.color-accent { color: var(--accent); }
+.bg-theme     { background-color: var(--bg); }
+.border-theme { border-color: var(--line); }
