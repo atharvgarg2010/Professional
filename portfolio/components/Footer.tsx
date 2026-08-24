@@ -1,4 +1,4 @@
-'use client';
+'use client'; 
 
 import { motion } from 'framer-motion';
 
@@ -36,19 +36,20 @@ export default function Footer() {
               </p>
               <h2 style={{
                 fontFamily: '"Helvetica Neue", Inter, Arial, sans-serif',
-                fontSize: 'clamp(4rem, 8vw, 7rem)',
+                fontSize: 'clamp(2.5rem, 10vw, 7rem)',
                 fontWeight: 700,
                 lineHeight: 0.9,
                 letterSpacing: '-0.04em',
-                margin: '0'
+                margin: '0',
+                wordBreak: 'break-word'
               }}>
                 LET'S BUILD <br />
                 <span style={{ color: 'color-mix(in srgb, var(--fg) 40%, transparent)' }}>SOMETHING.</span>
               </h2>
             </div>
             
-            <div style={{ display: 'flex', gap: '3rem', alignItems: 'center' }}>
-              <a href="mailto:gargatharv2010@gmail.com" style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', textDecoration: 'none', borderBottom: '1px solid var(--fg)', paddingBottom: '4px', transition: 'opacity 0.2s' }} onMouseEnter={e => (e.target as HTMLElement).style.opacity = '0.5'} onMouseLeave={e => (e.target as HTMLElement).style.opacity = '1'}>gargatharv2010@gmail.com</a>
+            <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', alignItems: 'center' }}>
+              <a href="mailto:gargatharv2010@gmail.com" style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', wordBreak: 'break-all', textDecoration: 'none', borderBottom: '1px solid var(--fg)', paddingBottom: '4px', transition: 'opacity 0.2s' }} onMouseEnter={e => (e.target as HTMLElement).style.opacity = '0.5'} onMouseLeave={e => (e.target as HTMLElement).style.opacity = '1'}>gargatharv2010@gmail.com</a>
               <span className="mono-label" style={{ color: 'var(--dim)', fontSize: '0.85rem' }}>DELHI, IN</span>
             </div>
           </motion.div>
@@ -116,7 +117,7 @@ export default function Footer() {
           transition={{ duration: 1, ease: 'easeOut' }}
           style={{
             fontFamily: '"Helvetica Neue", Inter, Arial, sans-serif',
-            fontSize: 'clamp(10rem, 25vw, 30rem)',
+            fontSize: 'clamp(5rem, 20vw, 30rem)',
             fontWeight: 800,
             color: 'var(--fg)',
             lineHeight: 0.7,

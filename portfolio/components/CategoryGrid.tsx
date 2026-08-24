@@ -115,14 +115,7 @@ export default function CategoryGrid() {
           </div>
 
           {/* Right — description + arrow, hidden on mobile */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '2rem',
-            }}
-            className="hidden md:flex"
-          >
+          <div className="hidden md:flex items-center gap-8">
             <span
               className="mono-label"
               style={{
