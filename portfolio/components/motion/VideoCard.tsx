@@ -112,12 +112,6 @@ export default function VideoCard({
             )}
             <span
               className="mono-label"
-              style={{ color: 'var(--dim)', zIndex: 1, position: 'relative' }}
-            >
-              EXPORT PENDING
-            </span>
-            <span
-              className="mono-label"
               style={{ color: 'var(--accent)', zIndex: 1, position: 'relative' }}
             >
               {title}
@@ -159,7 +153,7 @@ export default function VideoCard({
               </a>
             ) : (
               <span className="mono-label" style={{ color: 'var(--dim)' }}>
-                [ VIDEO FILE PENDING — SUPPLY H.264 MP4, UNDER 15MB ]
+                {/* Pending message removed per user request */}
               </span>
             )}
           </div>

@@ -301,20 +301,7 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
               </div>
             )}
 
-            {/* Placeholder label if neither title nor description */}
-            {!photo.title && !photo.description && (
-              <p
-                style={{
-                  fontFamily:   'var(--font-mono, "JetBrains Mono", monospace)',
-                  fontSize:     '0.65rem',
-                  textTransform:'uppercase',
-                  letterSpacing:'0.08em',
-                  color:        'var(--dim)',
-                }}
-              >
-                [ TITLE + DESCRIPTION PENDING — SUPPLY IN lib/photography-data.ts ]
-              </p>
-            )}
+            {/* Placeholder label removed per user request */}
 
             {/* Location / Year / EXIF details block */}
             <dl
