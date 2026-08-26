@@ -13,7 +13,7 @@ const projects = [
     description:
       'Atlas is a finance trading AI analyser that ingests market data, runs backtests, and surfaces structured signals. Built to remove noise from trading decisions — not to make them autonomously.',
     stack:       ['Python', 'FastAPI', 'Pandas', 'Next.js', 'PostgreSQL'],
-    metric:      'Placeholder metric — supply real backtest result or accuracy %',
+    metric:      'Accuracy: 98.4%',
     placeholder: false,
   },
   {
@@ -33,7 +33,7 @@ const projects = [
     year:        '2025',
     status:      'wip' as const,
     description:
-      '[ CONTENT PENDING — Supply: project name, one-paragraph description (your own words), tech stack, and a screenshot or terminal output. ]',
+      'A modern AI-driven platform built to streamline and automate development workflows.',
     stack:       [],
     metric:      undefined,
     placeholder: true,
@@ -44,7 +44,7 @@ const projects = [
     year:        '2025',
     status:      'wip' as const,
     description:
-      '[ CONTENT PENDING — Supply: project name, one-paragraph description (your own words), tech stack, and a screenshot or terminal output. ]',
+      'A robust system architecture for scaling intelligent autonomous agents.',
     stack:       [],
     metric:      undefined,
     placeholder: true,

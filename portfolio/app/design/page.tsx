@@ -16,17 +16,6 @@ export default function DesignPage() {
       */}
       <DesignClient />
 
-      {/* ── Asset note ───────────────────────────────────────────── */}
-      <section
-        className="hairline-t"
-        style={{ padding: '2rem' }}
-      >
-        <div style={{ maxWidth: '1536px', margin: '0 auto' }}>
-          <p className="mono-label" style={{ color: 'var(--dim)' }}>
-            [ SUPPLY 8-12 DESIGN ASSETS — WebP preferred, longest edge 2400px ]
-          </p>
-        </div>
-      </section>
     </PageShell>
   );
 }
