@@ -12,6 +12,8 @@ const designs = [
   { id: 4, title: 'Dil Chahta Hai', subtitle: 'Movie Poster', image: '/design/dch.jpg' },
   { id: 5, title: 'Metronexus', subtitle: 'Imaginative Art', image: '/design/metronexus.jpg' },
   { id: 6, title: 'Zytraxen', subtitle: 'Apparel Design', image: '/zytraxen.png' },
+  { id: 7, title: 'Peace On Demand', subtitle: 'Brand Strategy', image: '/design/peace-on-demand.jpg' },
+  { id: 8, title: 'Kooji Perfumes', subtitle: 'Product Advertising', image: '/design/kooji.png' },
 ];
 
 export default function DesignClient() {
