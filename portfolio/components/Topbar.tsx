@@ -11,6 +11,7 @@ const navLinks = [
   { href: '/motion',       label: 'Motion' },
   // { href: '/marketing',    label: 'Marketing' },
   // { href: '/author',       label: 'Author' },
+  { href: '/contact',      label: 'Contact' },
 ];
 
 function useClock() {
