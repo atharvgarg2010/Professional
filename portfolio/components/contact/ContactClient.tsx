@@ -4,10 +4,10 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 
 const contacts = [
-  { id: 'email', title: 'EMAIL', value: 'hello@atharv.com', link: 'mailto:hello@atharv.com', bg: '#0a0a0a', fg: '#ffffff', accent: '#78ffb4' },
+  { id: 'email', title: 'EMAIL', value: 'gargatharv2010@gmail.com', link: 'mailto:gargatharv2010@gmail.com', bg: '#0a0a0a', fg: '#ffffff', accent: '#78ffb4' },
   { id: 'github', title: 'GITHUB', value: 'atharvgarg2010', link: 'https://github.com/atharvgarg2010', bg: '#f2f2f2', fg: '#0a0a0a', accent: '#ff5a2b' },
-  { id: 'instagram', title: 'INSTAGRAM', value: '@atharv.visuals', link: 'https://instagram.com/', bg: '#1a0503', fg: '#ffffff', accent: '#a678ff' },
-  { id: 'phone', title: 'PHONE', value: '+91 99999 99999', link: 'tel:+919999999999', bg: '#0b1f14', fg: '#ffffff', accent: '#7ab8ff' },
+  { id: 'instagram', title: 'INSTAGRAM', value: '@atharv.garg10', link: 'https://instagram.com/atharv.garg10', bg: '#1a0503', fg: '#ffffff', accent: '#a678ff' },
+  { id: 'phone', title: 'PHONE', value: '+91 9310239359', link: 'tel:+919310239359', bg: '#0b1f14', fg: '#ffffff', accent: '#7ab8ff' },
 ];
 
 export default function ContactClient() {
@@ -87,13 +87,13 @@ export default function ContactClient() {
               y: card.y,
               scale: card.s,
               position: 'absolute',
-              top: '15vh',
+              top: '20vh',
               left: 0,
               right: 0,
               margin: '0 auto',
               width: '100%',
               maxWidth: '900px',
-              height: '70vh',
+              height: '60vh',
               backgroundColor: card.data.bg,
               color: card.data.fg,
               borderRadius: '2rem',
@@ -112,7 +112,7 @@ export default function ContactClient() {
           >
             {/* Header: Title and Index */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span className="mono-label" style={{ opacity: 0.6 }}>
+              <span className="mono-label" style={{ opacity: 0.9, letterSpacing: '0.05em' }}>
                 0{i + 1} // {card.data.title}
               </span>
               
@@ -149,10 +149,10 @@ export default function ContactClient() {
             <div 
               style={{
                 fontFamily: '"Helvetica Neue", Inter, Arial, sans-serif',
-                fontSize: 'clamp(2.5rem, 8vw, 6rem)',
-                fontWeight: 600,
+                fontSize: 'clamp(1.5rem, 4.5vw, 4rem)',
+                fontWeight: 500,
                 lineHeight: 0.9,
-                letterSpacing: '-0.04em',
+                letterSpacing: '-0.02em',
                 wordBreak: 'break-word',
                 transition: 'color 0.4s ease'
               }}
@@ -162,7 +162,7 @@ export default function ContactClient() {
             </div>
 
             {/* Footer detail */}
-            <div className="mono-label" style={{ opacity: 0.4 }}>
+            <div className="mono-label" style={{ opacity: 0.8, letterSpacing: '0.05em' }}>
               CLICK TO OPEN LINK
             </div>
           </motion.a>

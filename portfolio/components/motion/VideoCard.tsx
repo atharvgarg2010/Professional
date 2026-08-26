@@ -48,27 +48,35 @@ export default function VideoCard({
 
   return (
     <article
-      className="hairline-b py-10"
+      className="hairline-b"
+      style={{ padding: '8rem 0' }}
       aria-label={`Motion project: ${title}`}
     >
-      {/* Header */}
-      <div className="flex items-baseline gap-4 mb-4">
-        <h2 className="text-display-m" style={{ color: 'var(--fg)' }}>{title}</h2>
-        <span className="mono-label" style={{ color: 'var(--dim)' }}>{year}</span>
-        {inProgress && (
-          <span className="mono-label" style={{ color: 'var(--dim)' }}>IN PROGRESS</span>
-        )}
-      </div>
+      <div 
+        style={{ 
+          width: '100%', 
+          maxWidth: '1280px', 
+          margin: '0 auto' 
+        }}
+      >
+        {/* Header */}
+        <div className="flex items-baseline gap-4 mb-4">
+          <h2 className="text-display-m" style={{ color: 'var(--fg)' }}>{title}</h2>
+          <span className="mono-label" style={{ color: 'var(--dim)' }}>{year}</span>
+          {inProgress && (
+            <span className="mono-label" style={{ color: 'var(--dim)' }}>IN PROGRESS</span>
+          )}
+        </div>
 
-      <p className="text-body mb-6" style={{ color: 'var(--dim)', maxWidth: '56ch' }}>
-        {description}
-      </p>
+        <p className="text-body" style={{ color: 'var(--dim)', maxWidth: '56ch', marginBottom: '3rem' }}>
+          {description}
+        </p>
 
-      {/* Video / poster area */}
-      <div
-        className="relative overflow-hidden hairline"
-        style={{ aspectRatio: '16/9', cursor: inProgress ? 'default' : 'pointer' }}
-        onMouseEnter={handleMouseEnter}
+        {/* Video / poster area */}
+        <div
+          className="relative overflow-hidden hairline"
+          style={{ aspectRatio: '16/9', cursor: inProgress ? 'default' : 'pointer', backgroundColor: 'var(--bg)' }}
+          onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         id={`video-card-${title.toLowerCase().replace(/\s+/g, '-')}`}
       >
@@ -194,6 +202,7 @@ export default function VideoCard({
             </span>
           </div>
         )}
+      </div>
       </div>
     </article>
   );

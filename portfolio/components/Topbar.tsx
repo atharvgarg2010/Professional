@@ -11,7 +11,6 @@ const navLinks = [
   { href: '/motion',       label: 'Motion' },
   // { href: '/marketing',    label: 'Marketing' },
   // { href: '/author',       label: 'Author' },
-  { href: '/contact',      label: 'Contact' },
 ];
 
 function useClock() {
@@ -141,11 +140,10 @@ export default function Topbar() {
               {time} IST
             </span>
 
-            <a
-              href="mailto:hello@atharv.com"
-              className="hidden sm:inline-flex"
+            <Link
+              href="/contact"
+              className="hidden md:flex mono-label"
               style={{
-                fontFamily: '"Helvetica Neue", Inter, Arial, sans-serif',
                 fontSize: '0.85rem',
                 fontWeight: 600,
                 color: 'var(--bg)',
@@ -160,7 +158,7 @@ export default function Topbar() {
               onMouseLeave={e => (e.target as HTMLElement).style.opacity = '1'}
             >
               Contact
-            </a>
+            </Link>
 
             {/* Mobile menu toggle */}
             <button
@@ -234,8 +232,9 @@ export default function Topbar() {
 
           {/* CTA and Clock at bottom of drawer */}
           <div style={{ marginTop: 'auto', paddingTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <a
-              href="mailto:hello@atharv.com"
+            <Link
+              href="/contact"
+              onClick={() => setMenuOpen(false)}
               style={{
                 fontFamily: '"Helvetica Neue", Inter, Arial, sans-serif',
                 fontSize: '1.1rem',
@@ -249,7 +248,7 @@ export default function Topbar() {
               }}
             >
               Contact
-            </a>
+            </Link>
             <span className="mono-label" style={{ color: 'var(--dim)', textAlign: 'center' }}>{time} IST</span>
           </div>
         </div>

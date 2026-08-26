@@ -38,7 +38,16 @@ const categories = [
     accent:  '#a678ff',
     bg:      '#140a1f',
     desc:    'Frame rate as medium.',
-    index:   'C', // Updated index
+    index:   'C',
+  },
+  {
+    href:    '/contact',
+    slug:    'contact',
+    label:   'Contact',
+    accent:  '#7ab8ff',
+    bg:      '#0a0f1a',
+    desc:    'Let\'s build something together.',
+    index:   'D',
   },
   // {
   //   href:    '/marketing',
