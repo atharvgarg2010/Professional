@@ -19,7 +19,7 @@ export default function MotionHero() {
     show: {
       y: '0%',
       filter: 'blur(0px)',
-      transition: { type: 'spring', stiffness: 60, damping: 20 },
+      transition: { type: 'spring' as const, stiffness: 60, damping: 20 },
     },
   };
 
