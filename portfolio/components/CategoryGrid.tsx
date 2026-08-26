@@ -4,15 +4,15 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 const categories = [
-  {
-    href:    '/dev',
-    slug:    'dev',
-    label:   'Dev & AI',
-    accent:  '#78ffb4',
-    bg:      '#0b1f14',
-    desc:    'Systems, models, and things that actually run.',
-    index:   'A',
-  },
+  // {
+  //   href:    '/dev',
+  //   slug:    'dev',
+  //   label:   'Dev & AI',
+  //   accent:  '#78ffb4',
+  //   bg:      '#0b1f14',
+  //   desc:    'Systems, models, and things that actually run.',
+  //   index:   'A',
+  // },
   {
     href:    '/design',
     slug:    'design',
@@ -20,7 +20,7 @@ const categories = [
     accent:  '#ff5a2b',
     bg:      '#1a0a06',
     desc:    'Type, image, and layout as argument.',
-    index:   'B',
+    index:   'A', // Updated index
   },
   {
     href:    '/photography',
@@ -29,7 +29,7 @@ const categories = [
     accent:  '#f2f2f2',
     bg:      '#0a0a0a',
     desc:    'Light caught before the moment closed.',
-    index:   'C',
+    index:   'B', // Updated index
   },
   {
     href:    '/motion',
@@ -38,26 +38,26 @@ const categories = [
     accent:  '#a678ff',
     bg:      '#140a1f',
     desc:    'Frame rate as medium.',
-    index:   'D',
+    index:   'C', // Updated index
   },
-  {
-    href:    '/marketing',
-    slug:    'marketing',
-    label:   'Marketing',
-    accent:  '#7ab8ff',
-    bg:      '#0a0f1a',
-    desc:    'Strategic thinking, written as if someone were paying for it.',
-    index:   'E',
-  },
-  {
-    href:    '/author',
-    slug:    'author',
-    label:   'Author',
-    accent:  '#e74c3c',
-    bg:      '#1a0503',
-    desc:    'The delusions of a 16-year-old mind, preserved for the 80-year-old.',
-    index:   'F',
-  },
+  // {
+  //   href:    '/marketing',
+  //   slug:    'marketing',
+  //   label:   'Marketing',
+  //   accent:  '#7ab8ff',
+  //   bg:      '#0a0f1a',
+  //   desc:    'Strategic thinking, written as if someone were paying for it.',
+  //   index:   'E',
+  // },
+  // {
+  //   href:    '/author',
+  //   slug:    'author',
+  //   label:   'Author',
+  //   accent:  '#e74c3c',
+  //   bg:      '#1a0503',
+  //   desc:    'The delusions of a 16-year-old mind, preserved for the 80-year-old.',
+  //   index:   'F',
+  // },
 ];
 
 export default function CategoryGrid() {

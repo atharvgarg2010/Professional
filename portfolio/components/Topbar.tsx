@@ -5,12 +5,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
-  { href: '/dev',          label: 'Dev & AI' },
+  // { href: '/dev',          label: 'Dev & AI' },
   { href: '/design',       label: 'Design' },
   { href: '/photography',  label: 'Photography' },
   { href: '/motion',       label: 'Motion' },
-  { href: '/marketing',    label: 'Marketing' },
-  { href: '/author',       label: 'Author' },
+  // { href: '/marketing',    label: 'Marketing' },
+  // { href: '/author',       label: 'Author' },
 ];
 
 function useClock() {
