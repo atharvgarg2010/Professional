@@ -6,22 +6,32 @@ export const metadata: Metadata = { title: 'Motion' };
 
 const videos = [
   {
-    title:       'Motion Project 01',
-    year:        '2025',
-    description: '[ CONTENT PENDING — Supply title, description, H.264 MP4 under 15MB, and a poster frame. ]',
-    inProgress:  true,
+    title:       'Jack Of All Trades',
+    year:        '2026',
+    description: 'A high-energy, dynamic showcase of diverse skills and techniques.',
+    videoSrc:    '/motion/Jack Of All Trades.mp4',
+    inProgress:  false,
   },
   {
-    title:       'Motion Project 02',
-    year:        '2025',
-    description: '[ CONTENT PENDING — Supply title, description, video file, and poster frame. ]',
-    inProgress:  true,
+    title:       'Teaser One',
+    year:        '2026',
+    description: 'Fast-paced teaser composition focusing on impactful typography and motion design.',
+    videoSrc:    '/motion/Teaser1 v2.mp4',
+    inProgress:  false,
   },
   {
-    title:       'Motion Project 03',
-    year:        '2025',
-    description: '[ CONTENT PENDING — Supply title, description, video file, and poster frame. ]',
-    inProgress:  true,
+    title:       'Final Output',
+    year:        '2026',
+    description: 'The finalized motion graphics composition.',
+    videoSrc:    '/motion/Final.mp4',
+    inProgress:  false,
+  },
+  {
+    title:       'Final Alternative',
+    year:        '2026',
+    description: 'An alternate final render exploring different pacing.',
+    videoSrc:    '/motion/finallll.mp4',
+    inProgress:  false,
   },
 ];
 

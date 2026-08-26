@@ -26,6 +26,12 @@ export default function VideoCard({
 }: VideoCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsMuted(!isMuted);
+  };
 
   const handleMouseEnter = () => {
     if (!videoRef.current || inProgress) return;
@@ -37,6 +43,7 @@ export default function VideoCard({
     videoRef.current.pause();
     videoRef.current.currentTime = 0;
     setPlaying(false);
+    setIsMuted(true); // Always reset to muted when leaving
   };
 
   return (
@@ -113,12 +120,13 @@ export default function VideoCard({
             ref={videoRef}
             src={videoSrc}
             poster={posterSrc}
-            muted
+            muted={isMuted}
+            onClick={toggleMute}
             loop
             playsInline
             preload="none"
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-            aria-label={`${title} — hover to play`}
+            aria-label={`${title} — click to toggle sound`}
           />
         ) : (
           <div
@@ -163,6 +171,26 @@ export default function VideoCard({
           >
             <span className="mono-label" style={{ color: 'var(--accent)', opacity: 0.7 }}>
               HOVER TO PLAY
+            </span>
+          </div>
+        )}
+
+        {/* Audio indicator */}
+        {!inProgress && playing && videoSrc && (
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '1.5rem',
+              right: '1.5rem',
+              pointerEvents: 'none',
+              padding: '0.5rem 0.75rem',
+              backgroundColor: 'rgba(0,0,0,0.5)',
+              backdropFilter: 'blur(8px)',
+              borderRadius: '4px',
+            }}
+          >
+            <span className="mono-label" style={{ color: 'var(--fg)', fontSize: '0.75rem' }}>
+              {isMuted ? '[ CLICK FOR SOUND ]' : '[ PLAYING WITH SOUND ]'}
             </span>
           </div>
         )}

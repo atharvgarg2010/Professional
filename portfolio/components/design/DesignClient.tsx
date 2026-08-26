@@ -11,6 +11,7 @@ const designs = [
   { id: 3, title: 'The Weeknd', subtitle: 'Concert Poster', image: '/design/weeknd.jpg' },
   { id: 4, title: 'Dil Chahta Hai', subtitle: 'Movie Poster', image: '/design/dch.jpg' },
   { id: 5, title: 'Metronexus', subtitle: 'Imaginative Art', image: '/design/metronexus.jpg' },
+  { id: 6, title: 'Zytraxen', subtitle: 'Apparel Design', image: '/zytraxen.png' },
 ];
 
 export default function DesignClient() {
