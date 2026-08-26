@@ -35,7 +35,11 @@ export default function VideoCard({
 
   const handleMouseEnter = () => {
     if (!videoRef.current || inProgress) return;
-    videoRef.current.play().then(() => setPlaying(true)).catch(() => {});
+    videoRef.current.play()
+      .then(() => setPlaying(true))
+      .catch((e) => {
+        console.error("Video play error on hover:", e);
+      });
   };
 
   const handleMouseLeave = () => {
