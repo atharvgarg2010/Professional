@@ -193,18 +193,33 @@ export default function VideoCard({
           <div
             style={{
               position: 'absolute',
-              bottom: '1.5rem',
-              right: '1.5rem',
+              bottom: '1rem',
+              right: '1rem',
               pointerEvents: 'none',
-              padding: '0.5rem 0.75rem',
+              padding: '0.5rem',
               backgroundColor: 'rgba(0,0,0,0.5)',
               backdropFilter: 'blur(8px)',
-              borderRadius: '4px',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '36px',
+              height: '36px',
             }}
           >
-            <span className="mono-label" style={{ color: 'var(--fg)', fontSize: '0.75rem' }}>
-              {isMuted ? '[ CLICK FOR SOUND ]' : '[ PLAYING WITH SOUND ]'}
-            </span>
+            {isMuted ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fg)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fg)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+            )}
           </div>
         )}
       </div>
