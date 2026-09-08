@@ -65,9 +65,9 @@ export default function MotionPage() {
         aria-label="Motion projects"
       >
         <div style={{ maxWidth: '1536px', margin: '0 auto' }}>
-          {landscapeVideos.map((v) => (
-            <VideoCard key={v.title} {...v} />
-          ))}
+          {landscapeVideos.length > 0 && (
+            <VideoCard key={landscapeVideos[0].title} {...landscapeVideos[0]} />
+          )}
         </div>
 
         {reelVideos.length > 0 && (
@@ -91,6 +91,12 @@ export default function MotionPage() {
             </div>
           </article>
         )}
+
+        <div style={{ maxWidth: '1536px', margin: '0 auto' }}>
+          {landscapeVideos.slice(1).map((v) => (
+            <VideoCard key={v.title} {...v} />
+          ))}
+        </div>
       </section>
     </PageShell>
   );
