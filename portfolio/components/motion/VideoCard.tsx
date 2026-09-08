@@ -14,6 +14,7 @@ interface VideoCardProps {
   vimeoUrl?:    string;   // link to external if hosted there
   inProgress?:  boolean;  // ship "in progress" label, not a broken player
   isReel?:      boolean;  // true if it's a portrait video (9:16)
+  isGridItem?:  boolean;  // true if rendered inside a grid (removes outer padding/border)
 }
 
 export default function VideoCard({
@@ -25,6 +26,7 @@ export default function VideoCard({
   vimeoUrl,
   inProgress = false,
   isReel = false,
+  isGridItem = false,
 }: VideoCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
@@ -52,19 +54,17 @@ export default function VideoCard({
     setIsMuted(true); // Always reset to muted when leaving
   };
 
-  return (
-    <article
-      className="hairline-b"
-      style={{ padding: '8rem 0' }}
-      aria-label={`Motion project: ${title}`}
+  const content = (
+    <div 
+      style={{ 
+        width: '100%', 
+        maxWidth: isReel && !isGridItem ? '480px' : '100%', 
+        margin: '0 auto',
+        display: 'flex',
+        flexDirection: 'column'
+      }}
+      aria-label={isGridItem ? `Motion project: ${title}` : undefined}
     >
-      <div 
-        style={{ 
-          width: '100%', 
-          maxWidth: isReel ? '480px' : '1280px', 
-          margin: '0 auto' 
-        }}
-      >
         {/* Header */}
         <div className="flex items-baseline gap-4 mb-4">
           <h2 className="text-display-m" style={{ color: 'var(--fg)' }}>{title}</h2>
@@ -208,6 +208,21 @@ export default function VideoCard({
           </div>
         )}
       </div>
+    </div>
+  );
+
+  if (isGridItem) {
+    return content;
+  }
+
+  return (
+    <article
+      className="hairline-b"
+      style={{ padding: '8rem 0' }}
+      aria-label={`Motion project: ${title}`}
+    >
+      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+        {content}
       </div>
     </article>
   );

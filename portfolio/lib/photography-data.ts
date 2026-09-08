@@ -33,8 +33,8 @@ export const photos: Photo[] = [
     id: '01',
     src: '/photography/_DSC0007.JPG',
     aspectRatio: 1.5098,      // 4928×3264 — measured
-    title: '',                 // [ SUPPLY: photo title ]
-    description: '',           // [ SUPPLY: a few sentences about this photo ]
+    title: 'Innocence in Bloom',
+    description: 'There\'s a quiet magic in the way a young pup looks at the world—eyes wide with wonder, wrapped in a playful floral shirt. Sitting amidst the morning grass, this golden companion reminds us to pause, breathe, and find joy in life\'s simplest moments.',
     location: 'Delhi',
     year: '2025',
     details: {},
@@ -43,8 +43,8 @@ export const photos: Photo[] = [
     id: '02',
     src: '/photography/_DSC0009.JPG',
     aspectRatio: 0.8,         // Simulated portrait ratio for preview
-    title: '',
-    description: '',
+    title: 'Whispers of the Woods',
+    description: 'Every deep ridge and vibrant amber hue tells a story of seasons past. This ancient bark is a testament to resilience, standing tall against time, and offering a silent, comforting embrace to anyone who takes a moment to listen.',
     location: 'Delhi',
     year: '2025',
     details: {},
@@ -53,8 +53,8 @@ export const photos: Photo[] = [
     id: '03',
     src: '/photography/_DSC0066.JPG',
     aspectRatio: 1.0,         // Simulated square ratio for preview
-    title: '',
-    description: '',
+    title: 'Suspended Dreams',
+    description: 'Caught in a dramatic beam of golden light, this lone sneaker feels like a leap frozen in time. It speaks to the journey of chasing ambitions, reminding us that every great step forward begins with a single, bold leap into the unknown.',
     location: 'Delhi',
     year: '2025',
     details: {},
@@ -63,8 +63,8 @@ export const photos: Photo[] = [
     id: '04',
     src: '/photography/_DSC0126.JPG',
     aspectRatio: 0.66,        // Simulated tall portrait ratio for preview
-    title: '',
-    description: '',
+    title: 'Luminous Trails',
+    description: 'Surrounded by dancing ribbons of light in the dark, this bottle holds more than just a scent—it captures a memory waiting to be lived. The vibrant energy around it reflects the spark of confidence we feel when we step out into the night.',
     location: 'Delhi',
     year: '2025',
     details: {},
@@ -73,8 +73,8 @@ export const photos: Photo[] = [
     id: '05',
     src: '/photography/_DSC0423.JPG',
     aspectRatio: 1.25,        // Simulated 5:4 ratio for preview
-    title: '',
-    description: '',
+    title: 'The Road\'s Companion',
+    description: 'Gleaming in the soft daylight, the classic curves of this Hunter 350 invite endless possibilities. It\'s not just a machine; it\'s a promise of freedom, crisp morning air, and the heartwarming thrill of discovering new horizons.',
     location: 'Delhi',
     year: '2025',
     details: {},
@@ -83,8 +83,8 @@ export const photos: Photo[] = [
     id: '06',
     src: '/photography/nature-1.jpg',
     aspectRatio: 1.0,         // Estimated aspect ratio
-    title: 'Bird on a ledge',
-    description: '',
+    title: 'A Moment\'s Rest',
+    description: 'Perched high above the bustling world, this little voyager finds a fleeting sanctuary. It\'s a gentle reminder that no matter how long the flight, there is always a peaceful ledge waiting to offer rest and reflection.',
     location: '',
     year: '2026',
     details: {},
@@ -93,8 +93,8 @@ export const photos: Photo[] = [
     id: '07',
     src: '/photography/nature-2.jpg',
     aspectRatio: 1.5,         // Estimated aspect ratio
-    title: 'Golden Dragonfly',
-    description: '',
+    title: 'Golden Wings',
+    description: 'Basking in the golden hour\'s glow, this delicate dragonfly is a symbol of transformation and grace. Its iridescent wings catch the light, whispering a beautiful truth: that even the most fleeting moments can leave a lasting impact on our hearts.',
     location: '',
     year: '2026',
     details: {},
