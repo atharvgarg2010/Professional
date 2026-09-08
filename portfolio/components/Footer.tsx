@@ -66,10 +66,17 @@ export default function Footer() {
           <span className="mono-label" style={{ color: 'var(--dim)' }}>© {year} ATHARV. ALL RIGHTS RESERVED.</span>
 
           <div className="flex items-center gap-6">
-            {['EMAIL', 'GITHUB', 'LINKEDIN'].map((link) => (
+            {[
+              { label: 'EMAIL', href: 'mailto:gargatharv2010@gmail.com' },
+              { label: 'GITHUB', href: 'https://github.com/atharvgarg2010' },
+              { label: 'LINKEDIN', href: 'https://linkedin.com/' } // Provide placeholder
+            ].map(({ label, href }) => (
               <a
-                key={link}
-                href="#"
+                key={label}
+                href={href}
+                aria-label={`Visit my ${label}`}
+                target={href.startsWith('http') ? "_blank" : undefined}
+                rel={href.startsWith('http') ? "noopener noreferrer" : undefined}
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.85rem',
@@ -88,7 +95,7 @@ export default function Footer() {
                   (e.target as HTMLElement).style.borderBottom = 'none';
                 }}
               >
-                {link}
+                {label}
               </a>
             ))}
           </div>

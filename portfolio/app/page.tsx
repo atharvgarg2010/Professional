@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'Atharv — Portfolio',
   description:
     'Personal portfolio of Atharv — developer, designer, photographer, and motion artist based in Delhi.',
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function HomePage() {

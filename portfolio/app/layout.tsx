@@ -67,6 +67,15 @@ export const metadata: Metadata = {
     description: 'Personal portfolio of Atharv — developer, designer, photographer, and motion artist based in Delhi.',
     images: ['/hero-portrait.png'],
   },
+  alternates: {
+    canonical: 'https://atharv.com',
+  },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0b0b0c',
 };
 
 export default function RootLayout({
