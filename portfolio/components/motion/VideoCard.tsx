@@ -131,13 +131,13 @@ export default function VideoCard({
         ) : videoSrc ? (
           <video
             ref={videoRef}
-            src={videoSrc}
+            src={`${videoSrc}#t=0.001`}
             poster={posterSrc}
             muted={isMuted}
             onClick={toggleMute}
             loop
             playsInline
-            preload="none"
+            preload="metadata"
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             aria-label={`${title} — click to toggle sound`}
           />
