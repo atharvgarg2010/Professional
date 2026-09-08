@@ -13,6 +13,7 @@ interface VideoCardProps {
   posterSrc?:   string;   // static frame
   vimeoUrl?:    string;   // link to external if hosted there
   inProgress?:  boolean;  // ship "in progress" label, not a broken player
+  isReel?:      boolean;  // true if it's a portrait video (9:16)
 }
 
 export default function VideoCard({
@@ -23,6 +24,7 @@ export default function VideoCard({
   posterSrc,
   vimeoUrl,
   inProgress = false,
+  isReel = false,
 }: VideoCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
@@ -59,7 +61,7 @@ export default function VideoCard({
       <div 
         style={{ 
           width: '100%', 
-          maxWidth: '1280px', 
+          maxWidth: isReel ? '480px' : '1280px', 
           margin: '0 auto' 
         }}
       >
@@ -79,7 +81,12 @@ export default function VideoCard({
         {/* Video / poster area */}
         <div
           className="relative overflow-hidden hairline"
-          style={{ aspectRatio: '16/9', cursor: inProgress ? 'default' : 'pointer', backgroundColor: 'var(--bg)' }}
+          style={{ 
+            aspectRatio: isReel ? '9/16' : '16/9', 
+            cursor: inProgress ? 'default' : 'pointer', 
+            backgroundColor: 'var(--bg)',
+            margin: isReel ? '0 auto' : '0'
+          }}
           onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         id={`video-card-${title.toLowerCase().replace(/\s+/g, '-')}`}
