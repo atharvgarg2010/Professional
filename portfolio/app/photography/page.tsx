@@ -4,8 +4,13 @@ import AsciiCamera from '@/components/photography/AsciiCamera';
 import PhotographyClient from '@/components/photography/PhotographyClient';
 
 export const metadata: Metadata = {
-  title: 'Photography — Atharv',
-  description: 'Photography by Atharv, shot in Delhi and beyond.',
+  title: 'Photography',
+  description: 'Photography by Atharv, shot in Delhi and beyond. A visual storytelling gallery capturing moments, light, and shadows.',
+  openGraph: {
+    title: 'Photography | Atharv',
+    description: 'Photography by Atharv, shot in Delhi and beyond. A visual storytelling gallery capturing moments, light, and shadows.',
+    url: '/photography',
+  },
 };
 
 export default function PhotographyPage() {

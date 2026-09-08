@@ -3,7 +3,15 @@ import PageShell from '@/components/PageShell';
 import VideoCard from '@/components/motion/VideoCard';
 import MotionHero from '@/components/motion/MotionHero';
 
-export const metadata: Metadata = { title: 'Motion' };
+export const metadata: Metadata = { 
+  title: 'Motion',
+  description: 'Motion design, animation, and video editing portfolio by Atharv. Showcasing cinematic reels and dynamic graphics.',
+  openGraph: {
+    title: 'Motion | Atharv',
+    description: 'Motion design, animation, and video editing portfolio by Atharv. Showcasing cinematic reels and dynamic graphics.',
+    url: '/motion',
+  },
+};
 
 const videos = [
   {

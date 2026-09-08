@@ -1,11 +1,42 @@
 import type { Metadata } from 'next';
+import { Archivo_Black, Space_Grotesk, JetBrains_Mono, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 import Topbar from '@/components/Topbar';
 import Footer from '@/components/Footer';
 import TextureOverlay from '@/components/TextureOverlay';
 import Preloader from '@/components/Preloader';
 
+const archivoBlack = Archivo_Black({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+});
+
+const instrumentSerif = Instrument_Serif({
+  weight: '400',
+  style: 'italic',
+  subsets: ['latin'],
+  variable: '--font-serif',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://atharv.com'), // Replace with your actual domain
   title: {
     default: 'Atharv — Portfolio',
     template: '%s | Atharv',
@@ -17,7 +48,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
+    url: 'https://atharv.com',
     siteName: 'Atharv Portfolio',
+    title: 'Atharv — Portfolio',
+    description: 'Personal portfolio of Atharv — developer, designer, photographer, and motion artist based in Delhi.',
+    images: [
+      {
+        url: '/hero-portrait.png', // Or another generic OG image
+        width: 1200,
+        height: 630,
+        alt: 'Atharv Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Atharv — Portfolio',
+    description: 'Personal portfolio of Atharv — developer, designer, photographer, and motion artist based in Delhi.',
+    images: ['/hero-portrait.png'],
   },
 };
 
@@ -26,11 +74,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Theme is set per-route by each segment's layout.
-  // RootLayout stays theme-neutral; child layouts set data-theme on a wrapper.
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col">
+      <body className={`${archivoBlack.variable} ${spaceGrotesk.variable} ${jetBrainsMono.variable} ${instrumentSerif.variable} min-h-screen flex flex-col`}>
         <Preloader />
         <TextureOverlay />
         <Topbar />

@@ -3,8 +3,13 @@ import PageShell from '@/components/PageShell';
 import DesignClient from '@/components/design/DesignClient';
 
 export const metadata: Metadata = { 
-  title: 'Design — Atharv',
-  description: 'Design work by Atharv. Interactive portfolio gallery.',
+  title: 'Design',
+  description: 'Design work by Atharv. Interactive portfolio gallery showcasing web design, UI/UX, and branding projects.',
+  openGraph: {
+    title: 'Design | Atharv',
+    description: 'Design work by Atharv. Interactive portfolio gallery showcasing web design, UI/UX, and branding projects.',
+    url: '/design',
+  },
 };
 
 export default function DesignPage() {
