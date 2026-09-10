@@ -129,11 +129,6 @@
   background-size: 24px 24px;
 }
 
-/* ─── Custom Cursor ──────────────────────────────────────────────────────── */
-html.hide-cursor, html.hide-cursor * {
-  cursor: none !important;
-}
-
 /* ─── Base reset ─────────────────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;

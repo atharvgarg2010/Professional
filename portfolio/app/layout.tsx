@@ -6,7 +6,6 @@ import Footer from '@/components/Footer';
 import TextureOverlay from '@/components/TextureOverlay';
 import Preloader from '@/components/Preloader';
 import LenisProvider from '@/components/LenisProvider';
-import CustomCursor from '@/components/CustomCursor';
 
 const archivoBlack = Archivo_Black({
   weight: '400',
@@ -89,7 +88,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${archivoBlack.variable} ${spaceGrotesk.variable} ${jetBrainsMono.variable} ${instrumentSerif.variable} min-h-screen flex flex-col`}>
         <LenisProvider>
-          <CustomCursor />
           <Preloader />
           <TextureOverlay />
           <Topbar />
