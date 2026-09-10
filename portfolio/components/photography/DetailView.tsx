@@ -216,7 +216,7 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
         className="detail-overlay"
         role="dialog"
         aria-modal="true"
-        aria-label={photo.title || \`Photo \${photo.id}\`}
+        aria-label={photo.title || `Photo ${photo.id}`}
       >
         {/* Invisible scrim — click closes */}
         <div
