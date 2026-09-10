@@ -58,6 +58,14 @@ const videos = [
     inProgress:  false,
     isReel:      true,
   },
+  {
+    title:       'Misfits Reel',
+    year:        '2026',
+    description: 'Dynamic vertical reel for Misfits.',
+    videoSrc:    '/motion/misfits-reel.mp4',
+    inProgress:  false,
+    isReel:      true,
+  },
 ];
 
 export default function MotionPage() {
