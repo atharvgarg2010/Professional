@@ -8,8 +8,7 @@
  * - Escape key closes
  * - Left/Right arrow keys navigate prev/next
  * - Visible close control (×) — not click-outside alone
- * - Solid black scrim to prevent main page bleed-through
- * - Uses React Portal to escape Framer Motion stacking contexts
+ * - Uses React Portal to escape Framer Motion transforms and stacking contexts
  */
 'use client';
 
@@ -83,8 +82,8 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
         .detail-overlay {
           position: fixed;
           inset: 0;
-          z-index: 999999; /* Above the site Topbar */
-          background: #0a0a0a; /* Solid background to prevent bleed-through */
+          z-index: 999999; /* Force it above everything, including Topbar */
+          background: #090909; /* Solid background to prevent bleed-through */
           display: flex;
           flex-direction: column;
           animation: detail-fade-in 300ms cubic-bezier(.16,.84,.32,1) both;
@@ -104,7 +103,7 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
           flex: 0 0 65%;
           height: 100%;
           display: flex;
-          align-items: center;
+          align-items: center; /* Vertically center the image properly */
           justify-content: center;
           overflow: hidden;
           padding: 72px 24px 24px 32px;
@@ -114,7 +113,7 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
           max-height: 100%;
           object-fit: contain;
           display: block;
-          margin-bottom: auto; /* Push image to the top safely */
+          margin-bottom: auto; /* Align to top cleanly */
         }
         .detail-info-zone {
           flex: 0 0 35%;
@@ -196,7 +195,7 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
             width: 100%;
             height: auto;
             max-height: 55vh;
-            margin-bottom: 0; /* Reset margin on mobile */
+            margin-bottom: 0;
           }
           .detail-info-zone {
             flex: 1 0 auto;
@@ -355,6 +354,8 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
     </>
   );
 
+  // Use React Portal to attach this modal directly to the document body.
+  // This guarantees it sits above the Topbar and escapes all stacking contexts.
   if (!mounted) return null;
   return createPortal(content, document.body);
 }
