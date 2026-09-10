@@ -8,12 +8,13 @@
  * - Escape key closes
  * - Left/Right arrow keys navigate prev/next
  * - Visible close control (×) — not click-outside alone
- * - Near-black scrim, no border-radius, no card border, no shadows
- * - Transition: quick crossfade ~300ms
+ * - Solid black scrim to prevent main page bleed-through
+ * - Uses React Portal to escape Framer Motion stacking contexts
  */
 'use client';
 
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useState } from 'react';
+import { createPortal } from 'react-dom';
 import type { Photo } from '@/lib/photography-data';
 
 interface DetailViewProps {
@@ -24,12 +25,18 @@ interface DetailViewProps {
 }
 
 export default function DetailView({ photos, current, onClose, onNavigate }: DetailViewProps) {
+  const [mounted, setMounted] = useState(false);
   const photo = photos[current];
   const hasPrev = current > 0;
   const hasNext = current < photos.length - 1;
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // ── URL hash management ──────────────────────────────────────────────────
   useEffect(() => {
+    if (!mounted) return;
     const hash = `#photo-${photo.id}`;
     if (window.location.hash !== hash) {
       window.history.pushState(null, '', hash);
@@ -40,14 +47,15 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
         window.history.pushState(null, '', window.location.pathname);
       }
     };
-  }, [photo.id]);
+  }, [photo.id, mounted]);
 
   // ── Back-button closes ────────────────────────────────────────────────────
   useEffect(() => {
+    if (!mounted) return;
     const handler = () => onClose();
     window.addEventListener('popstate', handler);
     return () => window.removeEventListener('popstate', handler);
-  }, [onClose]);
+  }, [onClose, mounted]);
 
   // ── Keyboard navigation ───────────────────────────────────────────────────
   const onKey = useCallback((e: KeyboardEvent) => {
@@ -57,24 +65,26 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
   }, [onClose, onNavigate, current, hasPrev, hasNext]);
 
   useEffect(() => {
+    if (!mounted) return;
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [onKey]);
+  }, [onKey, mounted]);
 
   // ── Body scroll lock ──────────────────────────────────────────────────────
   useEffect(() => {
+    if (!mounted) return;
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = ''; };
-  }, []);
+  }, [mounted]);
 
-  return (
+  const content = (
     <>
       <style>{`
         .detail-overlay {
           position: fixed;
           inset: 0;
-          z-index: 200;
-          background: rgba(8,8,8,0.96);
+          z-index: 999999; /* Above the site Topbar */
+          background: #0a0a0a; /* Solid background to prevent bleed-through */
           display: flex;
           flex-direction: column;
           animation: detail-fade-in 300ms cubic-bezier(.16,.84,.32,1) both;
@@ -97,14 +107,14 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
           align-items: center;
           justify-content: center;
           overflow: hidden;
-          padding: 56px 24px 24px 32px;
+          padding: 72px 24px 24px 32px;
         }
         .detail-image-zone img {
           max-width: 100%;
           max-height: 100%;
           object-fit: contain;
           display: block;
-          /* No border-radius, no shadow */
+          margin-bottom: auto; /* Push image to the top safely */
         }
         .detail-info-zone {
           flex: 0 0 35%;
@@ -186,6 +196,7 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
             width: 100%;
             height: auto;
             max-height: 55vh;
+            margin-bottom: 0; /* Reset margin on mobile */
           }
           .detail-info-zone {
             flex: 1 0 auto;
@@ -206,7 +217,7 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
         className="detail-overlay"
         role="dialog"
         aria-modal="true"
-        aria-label={photo.title || `Photo ${photo.id}`}
+        aria-label={photo.title || \`Photo \${photo.id}\`}
       >
         {/* Invisible scrim — click closes */}
         <div
@@ -258,14 +269,13 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
             <img
               key={photo.src}
               src={photo.src}
-              alt={photo.title || `Photograph by Atharv`}
+              alt={photo.title || 'Photograph by Atharv'}
               loading="eager"
             />
           </div>
 
           {/* Info panel */}
           <div className="detail-info-zone">
-            {/* Title — only if supplied */}
             {photo.title && (
               <div>
                 <h2
@@ -284,7 +294,6 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
               </div>
             )}
 
-            {/* Description — only if supplied */}
             {photo.description && (
               <div>
                 <p
@@ -301,9 +310,6 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
               </div>
             )}
 
-            {/* Placeholder label removed per user request */}
-
-            {/* Location / Year / EXIF details block */}
             <dl
               style={{
                 display:      'grid',
@@ -348,4 +354,7 @@ export default function DetailView({ photos, current, onClose, onNavigate }: Det
       </div>
     </>
   );
+
+  if (!mounted) return null;
+  return createPortal(content, document.body);
 }
