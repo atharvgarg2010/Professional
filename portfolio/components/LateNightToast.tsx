@@ -9,14 +9,14 @@ export default function LateNightToast() {
   useEffect(() => {
     // Determine if it's late night.
     const hour = new Date().getHours();
-    
+
     // For testing: 13 to 17 (1 PM to 5 PM). Change to (hour >= 2 && hour < 5) later.
-    if (hour >= 13 && hour < 17) {
+    if (hour >= 1 && hour < 5) {
       // Delay the popup so it doesn't instantly jump scare them on load
       const timer = setTimeout(() => {
         setIsVisible(true);
       }, 3000);
-      
+
       return () => clearTimeout(timer);
     }
   }, []);
@@ -47,7 +47,7 @@ export default function LateNightToast() {
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem' }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', opacity: 0.7 }}>SYSTEM.TIME</span>
-            <button 
+            <button
               onClick={() => setIsVisible(false)}
               aria-label="Close"
               style={{
@@ -65,8 +65,8 @@ export default function LateNightToast() {
               ✕
             </button>
           </div>
-          
-          <h3 style={{ 
+
+          <h3 style={{
             fontFamily: '"Helvetica Neue", Inter, sans-serif',
             fontSize: '1.1rem',
             fontWeight: 600,
@@ -75,7 +75,7 @@ export default function LateNightToast() {
           }}>
             Shouldn't you be asleep?
           </h3>
-          
+
           <p style={{
             fontFamily: 'var(--font-body)',
             fontSize: '0.9rem',
