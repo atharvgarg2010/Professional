@@ -56,13 +56,33 @@
 }
 
 /* ─── Texture overlays ───────────────────────────────────────────────────── */
-/* Dev — scanlines */
-[data-theme="dev"] .texture::before {
+
+/* Base setup for all textures with animation bleed area */
+.texture::before {
   content: '';
   position: fixed;
-  inset: 0;
+  inset: -200px;
   pointer-events: none;
   z-index: 9998;
+  animation: grain-shift 0.8s steps(4) infinite;
+}
+
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, 2%); }
+  50% { transform: translate(-4%, -2%); }
+  75% { transform: translate(2%, 4%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .texture::before {
+    animation: none;
+    inset: 0;
+  }
+}
+
+/* Dev — scanlines */
+[data-theme="dev"] .texture::before {
   background: repeating-linear-gradient(
     0deg,
     transparent,
@@ -74,11 +94,6 @@
 
 /* Design — diagonal hatch */
 [data-theme="design"] .texture::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9998;
   background-image: repeating-linear-gradient(
     45deg,
     rgba(255,90,43,0.06) 0px,
@@ -90,22 +105,12 @@
 
 /* Photography — radial dot film grain via SVG noise */
 [data-theme="photography"] .texture::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9998;
   background-image: radial-gradient(circle, rgba(242,242,242,0.1) 1px, transparent 1px);
   background-size: 4px 4px;
 }
 
 /* Motion — soft diagonal light streak */
 [data-theme="motion"] .texture::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9998;
   background: linear-gradient(
     100deg,
     transparent 0%,
@@ -118,11 +123,6 @@
 
 /* Marketing — grid lines */
 [data-theme="marketing"] .texture::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9998;
   background-image:
     linear-gradient(rgba(122,184,255,0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(122,184,255,0.08) 1px, transparent 1px);

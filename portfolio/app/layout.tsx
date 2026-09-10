@@ -5,6 +5,7 @@ import Topbar from '@/components/Topbar';
 import Footer from '@/components/Footer';
 import TextureOverlay from '@/components/TextureOverlay';
 import Preloader from '@/components/Preloader';
+import LenisProvider from '@/components/LenisProvider';
 
 const archivoBlack = Archivo_Black({
   weight: '400',
@@ -86,13 +87,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${archivoBlack.variable} ${spaceGrotesk.variable} ${jetBrainsMono.variable} ${instrumentSerif.variable} min-h-screen flex flex-col`}>
-        <Preloader />
-        <TextureOverlay />
-        <Topbar />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <LenisProvider>
+          <Preloader />
+          <TextureOverlay />
+          <Topbar />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );
