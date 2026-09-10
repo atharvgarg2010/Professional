@@ -99,6 +99,16 @@ export const photos: Photo[] = [
     year: '2026',
     details: {},
   },
+  {
+    id: '08',
+    src: '/photography/horses.jpg',
+    aspectRatio: 0.6621,
+    title: 'Silent Companions',
+    description: 'Grazing peacefully against a majestic, barren landscape, these horses embody the quiet resilience of nature. A serene moment of connection and untamed freedom.',
+    location: '',
+    year: '2026',
+    details: {},
+  },
   // ─── SUPPLY REMAINING PHOTOS HERE ─────────────────────────────────────────
   // Copy the object above and fill in real data. Keep in ranked order.
 ];
