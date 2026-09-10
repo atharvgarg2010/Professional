@@ -1,9 +1,26 @@
 'use client'; 
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const [isLateNight, setIsLateNight] = useState(false);
+
+  useEffect(() => {
+    // Easter Egg 1: Developer Handshake
+    console.log(
+      "%c🚀 Built by Atharv Garg\n%cHey there, fellow developer! If you're reading this, you probably know your way around the web. Have a great day!",
+      "font-size: 20px; font-weight: bold; color: #fff; background: #000; padding: 8px 12px; border-radius: 4px; line-height: 1.5;",
+      "font-size: 14px; color: #888; display: block; margin-top: 8px;"
+    );
+
+    // Easter Egg 4: The Late-Night Owl
+    const hour = new Date().getHours();
+    if (hour >= 2 && hour < 5) {
+      setIsLateNight(true);
+    }
+  }, []);
 
   return (
     <footer
@@ -63,7 +80,9 @@ export default function Footer() {
           transition={{ duration: 0.8 }}
           className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
         >
-          <span className="mono-label" style={{ color: 'var(--dim)' }}>© {year} ATHARV. ALL RIGHTS RESERVED.</span>
+          <span className="mono-label" style={{ color: 'var(--dim)', transition: 'color 0.3s' }}>
+            © {year} ATHARV. {isLateNight ? "SHOULDN'T YOU BE ASLEEP?" : "ALL RIGHTS RESERVED."}
+          </span>
 
           <div className="flex items-center gap-6">
             {[
