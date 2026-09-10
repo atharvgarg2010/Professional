@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
   const year = new Date().getFullYear();
-  const [isLateNight, setIsLateNight] = useState(false);
 
   useEffect(() => {
     // Easter Egg 1: Developer Handshake
@@ -14,12 +13,6 @@ export default function Footer() {
       "font-size: 20px; font-weight: bold; color: #fff; background: #000; padding: 8px 12px; border-radius: 4px; line-height: 1.5;",
       "font-size: 14px; color: #888; display: block; margin-top: 8px;"
     );
-
-    // Easter Egg 4: The Late-Night Owl (Testing: 1 PM - 5 PM)
-    const hour = new Date().getHours();
-    if (hour >= 13 && hour < 17) {
-      setIsLateNight(true);
-    }
   }, []);
 
   return (
@@ -81,7 +74,7 @@ export default function Footer() {
           className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
         >
           <span className="mono-label" style={{ color: 'var(--dim)', transition: 'color 0.3s' }}>
-            © {year} ATHARV. {isLateNight ? "SHOULDN'T YOU BE ASLEEP?" : "ALL RIGHTS RESERVED."}
+            © {year} ATHARV. ALL RIGHTS RESERVED.
           </span>
 
           <div className="flex items-center gap-6">

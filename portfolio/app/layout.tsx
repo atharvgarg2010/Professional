@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import TextureOverlay from '@/components/TextureOverlay';
 import Preloader from '@/components/Preloader';
 import LenisProvider from '@/components/LenisProvider';
+import LateNightToast from '@/components/LateNightToast';
 
 const archivoBlack = Archivo_Black({
   weight: '400',
@@ -95,6 +96,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <LateNightToast />
         </LenisProvider>
       </body>
     </html>
