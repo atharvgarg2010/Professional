@@ -15,9 +15,9 @@ export default function Footer() {
       "font-size: 14px; color: #888; display: block; margin-top: 8px;"
     );
 
-    // Easter Egg 4: The Late-Night Owl
+    // Easter Egg 4: The Late-Night Owl (Testing: 1 PM - 5 PM)
     const hour = new Date().getHours();
-    if (hour >= 2 && hour < 5) {
+    if (hour >= 13 && hour < 17) {
       setIsLateNight(true);
     }
   }, []);
