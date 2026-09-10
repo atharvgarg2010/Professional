@@ -109,6 +109,16 @@ export const photos: Photo[] = [
     year: '2026',
     details: {},
   },
+  {
+    id: '09',
+    src: '/photography/camel.jpg',
+    aspectRatio: 0.6621,
+    title: 'Desert Companion',
+    description: 'A quiet moment of rest between a traveler and his camel, sitting together on the sun-baked earth. The deep textures of the camel\'s coat and the man\'s weary posture speak volumes of their shared journey.',
+    location: '',
+    year: '2026',
+    details: {},
+  },
   // ─── SUPPLY REMAINING PHOTOS HERE ─────────────────────────────────────────
   // Copy the object above and fill in real data. Keep in ranked order.
 ];
