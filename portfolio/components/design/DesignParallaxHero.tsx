@@ -25,10 +25,11 @@ export default function DesignParallaxHero() {
   // Updated user designs for the revolving cards
   const cards = [
     { id: 1, title: 'Ladakh (Portrait)', image: '/design/ladakh-1.jpg', angle: 0 },
-    { id: 2, title: 'Ladakh (Statue)', image: '/design/ladakh-2.jpg', angle: 72 },
-    { id: 3, title: 'The Weeknd', image: '/design/weeknd.jpg', angle: 144 },
-    { id: 4, title: 'Dil Chahta Hai', image: '/design/dch.jpg', angle: 216 },
-    { id: 5, title: 'Metronexus', image: '/design/metronexus.jpg', angle: 288 },
+    { id: 2, title: 'Ladakh (Statue)', image: '/design/ladakh-2.jpg', angle: 60 },
+    { id: 3, title: 'The Weeknd', image: '/design/weeknd.jpg', angle: 120 },
+    { id: 4, title: 'Dil Chahta Hai', image: '/design/dch.jpg', angle: 180 },
+    { id: 5, title: 'Metronexus', image: '/design/metronexus.jpg', angle: 240 },
+    { id: 6, title: 'Jack of All Trades', image: '/design/jack.png', angle: 300 },
   ];
 
   return (

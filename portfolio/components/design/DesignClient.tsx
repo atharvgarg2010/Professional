@@ -14,6 +14,7 @@ const designs = [
   { id: 6, title: 'Zytraxen', subtitle: 'Apparel Design', image: '/zytraxen.png' },
   { id: 7, title: 'Peace On Demand', subtitle: 'Brand Strategy', image: '/design/peace-on-demand.jpg' },
   { id: 8, title: 'Kooji Perfumes', subtitle: 'Product Advertising', image: '/design/kooji.png' },
+  { id: 9, title: 'Jack of All Trades', subtitle: 'Typography Poster', image: '/design/jack.png' },
 ];
 
 export default function DesignClient() {
