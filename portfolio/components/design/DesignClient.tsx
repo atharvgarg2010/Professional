@@ -6,15 +6,16 @@ import DesignMasonryGrid from './DesignMasonryGrid';
 import Image from 'next/image';
 
 const designs = [
-  { id: 1, title: 'Ladakh (Portrait)', subtitle: 'Editorial Design', image: '/design/ladakh-1.jpg' },
-  { id: 2, title: 'Ladakh (Statue)', subtitle: 'Visual System', image: '/design/ladakh-2.jpg' },
-  { id: 3, title: 'The Weeknd', subtitle: 'Concert Poster', image: '/design/weeknd.jpg' },
-  { id: 4, title: 'Dil Chahta Hai', subtitle: 'Movie Poster', image: '/design/dch.jpg' },
-  { id: 5, title: 'Metronexus', subtitle: 'Imaginative Art', image: '/design/metronexus.jpg' },
-  { id: 6, title: 'Zytraxen', subtitle: 'Apparel Design', image: '/zytraxen.png' },
-  { id: 7, title: 'Peace On Demand', subtitle: 'Brand Strategy', image: '/design/peace-on-demand.jpg' },
-  { id: 8, title: 'Kooji Perfumes', subtitle: 'Product Advertising', image: '/design/kooji.png' },
-  { id: 9, title: 'Jack of All Trades', subtitle: 'Typography Poster', image: '/design/jack.png' },
+  { id: 1, title: 'Vice President', subtitle: 'Poster Design', image: '/design/vice-president.png' },
+  { id: 2, title: 'Ladakh (Portrait)', subtitle: 'Editorial Design', image: '/design/ladakh-1.jpg' },
+  { id: 3, title: 'Ladakh (Statue)', subtitle: 'Visual System', image: '/design/ladakh-2.jpg' },
+  { id: 4, title: 'The Weeknd', subtitle: 'Concert Poster', image: '/design/weeknd.jpg' },
+  { id: 5, title: 'Dil Chahta Hai', subtitle: 'Movie Poster', image: '/design/dch.jpg' },
+  { id: 6, title: 'Metronexus', subtitle: 'Imaginative Art', image: '/design/metronexus.jpg' },
+  { id: 7, title: 'Zytraxen', subtitle: 'Apparel Design', image: '/zytraxen.png' },
+  { id: 8, title: 'Peace On Demand', subtitle: 'Brand Strategy', image: '/design/peace-on-demand.jpg' },
+  { id: 9, title: 'Kooji Perfumes', subtitle: 'Product Advertising', image: '/design/kooji.png' },
+  { id: 10, title: 'Jack of All Trades', subtitle: 'Typography Poster', image: '/design/jack.png' },
 ];
 
 export default function DesignClient() {
